@@ -1,4 +1,3 @@
-# Success!
 # Transitive Inference of GPT
 # Anaconda3 python 3.12.4
 
@@ -41,7 +40,7 @@ def TestTI(expCond_file,file_name,new_pos):
         promptTI = expCond_file['B'+str(temp_index)].value
         messages.append({"role": "user","content": promptTI})
         # answer = ViaRequest(promptTI)
-        # # # 以下内容不能通过函数调用的方式，因为每个trial调用都会去除记忆，而这里需要保留记忆
+       
         url="https://api.openai.com/v1/chat/completions" 
         # OPENAI_API_KEY="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"
         OPENAI_API_KEY="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"
@@ -49,7 +48,7 @@ def TestTI(expCond_file,file_name,new_pos):
         data={
             "model": "gpt-3.5-turbo", # gpt-3.5-turbo, gpt-4
             "messages": messages,
-            "temperature":0.5,
+            "temperature":0,
             "stream":False,    
         }
         try:
@@ -88,6 +87,3 @@ if __name__ == "__main__":
     TestTI(Ctxt2_jump,prefix+gpt_name+'_Ctxt2_jump.xlsx','Ctxt2Jump')
     TestTI(Ctxt3_chain,prefix+gpt_name+'_Ctxt3_chain.xlsx','Ctxt3Chain')
     TestTI(Ctxt3_jump,prefix+gpt_name+'_Ctxt3_jump.xlsx','Ctxt3Jump')
-
-
-
