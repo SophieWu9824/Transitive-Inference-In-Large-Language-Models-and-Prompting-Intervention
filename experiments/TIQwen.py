@@ -1,8 +1,7 @@
 
-# 批量化
 # Transitive Inference of Tongyi Qianwen
 
-import __init__ # put at 
+import __init__ 
 import os
 import openpyxl
 import shutil
@@ -13,7 +12,7 @@ from dashscope import Generation
 from dashscope.api_entities.dashscope_response import Role
 
 # Tongyi API
-dashscope.api_key = 'sk-ecc6d8e1769845acadaa9c4f64f85e8b' 
+dashscope.api_key = 'your dashscope api' 
 os.chdir('C:/Users/sophi/Desktop/AIPsyResearch/3_TransitiveInference/1_Experiment/Code')
 # read the questions to test transitive inference
 data_file_name = {'Origin':'QuestionSet.xlsx',
@@ -43,8 +42,7 @@ def call_with_messages(test_prompt):
     answer = response.output.choices[0]['message']['content']
     print(answer)
     if response.status_code == HTTPStatus.OK:
-        print("/nTongYi: ", answer) # 只输出模型响应的content
-        # 把模型的输出添加到messages中，保存记忆
+        print("/nTongYi: ", answer) 
         messages.append({'role': response.output.choices[0]['message']['role'],
                             'content': response.output.choices[0]['message']['content']})
     else:
@@ -83,5 +81,3 @@ if __name__ == '__main__':
     TestTI(Ctxt2_jump,prefix+'Qwen_Ctxt2_jump.xlsx','Ctxt2Jump')
     TestTI(Ctxt3_chain,prefix+'Qwen_Ctxt3_chain.xlsx','Ctxt3Chain')
     TestTI(Ctxt3_jump,prefix+'Qwen_Ctxt3_jump.xlsx','Ctxt3Jump')
-
-
