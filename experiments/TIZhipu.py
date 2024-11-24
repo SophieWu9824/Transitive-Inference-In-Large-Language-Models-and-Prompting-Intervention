@@ -1,6 +1,5 @@
-# 批量化, python 3.12.4 Anaconda 3
+# python 3.12.4 Anaconda 3
 # Transitive Inference of Zhipu
-# 无记忆
 
 import __init__
 import os
@@ -9,7 +8,7 @@ import shutil
 import time
 from zhipuai import ZhipuAI
 # os.chdir(os.getcwd())
-mykey = 'c4fb1687cbff59262223286a49deb47f.ZsKXoRJdcuroAgNw'
+mykey = 'your zhipu key'
 client = ZhipuAI(api_key= mykey)
 
 os.chdir('C:/Users/sophi/Desktop/AIPsyResearch/3_TransitiveInference/1_Experiment/Code')
@@ -50,7 +49,6 @@ def TestTI(expCond_file,file_name,new_pos):
             model = 'glm-4',
             messages = messages,
         )
-        # 多轮调用，保存背景记忆： Fail...
         messages.append({'role': response.choices[0].message.role,
                 'content': response.choices[0].message.content})
         answerTI = response.choices[0].message.content
