@@ -42,8 +42,7 @@ def TestTI(expCond_file,file_name,new_pos):
         # answer = ViaRequest(promptTI)
        
         url="https://api.openai.com/v1/chat/completions" 
-        # OPENAI_API_KEY="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"
-        OPENAI_API_KEY="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"
+        OPENAI_API_KEY="your openai key"
         header={"Content-Type": "application/json","Authorization": "Bearer " +OPENAI_API_KEY}
         data={
             "model": "gpt-3.5-turbo", # gpt-3.5-turbo, gpt-4
