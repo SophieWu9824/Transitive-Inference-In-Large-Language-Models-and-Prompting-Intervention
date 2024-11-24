@@ -1,4 +1,3 @@
-# Success!
 # Transitive Inference of Llama3
 # python 3.8
 
@@ -48,7 +47,7 @@ def TestTI(expCond_file,file_name,new_pos):
         response = client.chat.completions.create(
             model = "meta/llama3-8b-instruct",
             messages = messages,
-            temperature = 0.5, # 0
+            temperature = 0, # 0
             stream = False
         )
         answer = response.choices[0].message.content
@@ -76,13 +75,3 @@ if __name__ == "__main__":
     # TestTI(Ctxt2_jump,prefix+model_name+'_Ctxt2_jump.xlsx','Ctxt2Jump')
     # TestTI(Ctxt3_chain,prefix+model_name+'_Ctxt3_chain.xlsx','Ctxt3Chain')
     TestTI(Ctxt3_jump,prefix+model_name+'_Ctxt3_jump.xlsx','Ctxt3Jump')
-
-
-
-
-
-
-
-
-
-
